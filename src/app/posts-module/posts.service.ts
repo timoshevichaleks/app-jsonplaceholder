@@ -11,7 +11,7 @@ export class PostsService {
   constructor(private http: HttpClient) { }
 
   getPosts() {
-    return this.http.get<Post[]>(`${environment.api}/posts`).pipe();
+    return this.http.get<Post[]>(`${environment.api}/posts`);
   }
 
 }
