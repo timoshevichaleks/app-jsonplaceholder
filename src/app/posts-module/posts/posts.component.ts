@@ -10,7 +10,7 @@ import { Post } from "../post";
 })
 export class PostsComponent implements OnInit {
 
-  posts$: Observable<Post[]> | undefined;
+  posts$: Observable<Post[]>;
 
   constructor(public postsService: PostsService) {
   }
