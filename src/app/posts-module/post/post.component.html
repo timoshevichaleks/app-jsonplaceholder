@@ -1,13 +1,13 @@
-<div *ngIf="post">
+<div *ngIf="post$ | async as asyncPost">
 
   <div class="container">
     <div class="row">
       <div class="col">
 
         <h2 class="py-3 text-center">POST DETAILS</h2>
-        <h3 class="py-2">{{post.id}}. {{post.title}}</h3>
+        <h3 class="py-2">{{asyncPost.id}}. {{asyncPost.title}}</h3>
 
-        <p>{{post.body}}</p>
+        <p>{{asyncPost.body}}</p>
 
         <div>
           <a routerLink="/posts" class="btn btn-primary">Go to POSTS</a>

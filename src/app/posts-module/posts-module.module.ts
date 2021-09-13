@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsComponent } from "./posts/posts.component";
 import { AppRoutingModule } from "../app-routing.module";
-import {PostComponent} from "./post/post.component";
-
+import { PostComponent } from "./post/post.component";
 
 
 @NgModule({
@@ -14,9 +13,10 @@ import {PostComponent} from "./post/post.component";
   exports: [
     PostsComponent
   ],
-	imports: [
-		CommonModule,
+  imports: [
+    CommonModule,
     AppRoutingModule
-	]
+  ]
 })
-export class PostsModuleModule { }
+export class PostsModuleModule {
+}
