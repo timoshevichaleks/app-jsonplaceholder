@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from "../post";
 import { PostsService } from "../posts.service";
-import { ActivatedRoute, Params } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -10,22 +10,21 @@ import { ActivatedRoute, Params } from "@angular/router";
 })
 export class PostComponent implements OnInit {
 
-  post$: Post;
+  post: Post;
 
-  constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute) {
-  }
+  constructor(
+    private postsService: PostsService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: Params) => {
-      const id = +params.id;
+    const {id} = this.activatedRoute.snapshot.params;
 
-      if (isNaN(id)) return;
-
-      this.postsService.getPostDetails(id).subscribe((res: Post) => {
-        this.post$ = res;
-      });
+    if (isNaN(id)) this.router.navigate(['/posts']);
+    else this.postsService.getPostDetails(id).subscribe((res: Post) => {
+      this.post = res;
     });
-
   }
 
 }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from "../posts.service";
 import { Observable } from "rxjs";
 import { Post } from "../post";
-import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-posts',
@@ -13,15 +12,10 @@ export class PostsComponent implements OnInit {
 
   posts$: Observable<Post[]>;
 
-  constructor(private postsService: PostsService, private router: Router) {
+  constructor(private postsService: PostsService) {
   }
 
   ngOnInit(): void {
     this.posts$ = this.postsService.getPosts();
   }
-
-  onSelect(id: number) {
-    this.router.navigate(['posts', id]).then();
-  }
-
 }
