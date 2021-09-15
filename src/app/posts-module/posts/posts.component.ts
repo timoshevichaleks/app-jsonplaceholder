@@ -10,13 +10,12 @@ import { Post } from "../post";
 })
 export class PostsComponent implements OnInit {
 
-  posts$: Observable<Post[]> | undefined;
+  posts$: Observable<Post[]>;
 
   constructor(private postsService: PostsService) {
   }
 
   ngOnInit(): void {
-     this.posts$ = this.postsService.getPosts();
+    this.posts$ = this.postsService.getPosts();
   }
-
 }
