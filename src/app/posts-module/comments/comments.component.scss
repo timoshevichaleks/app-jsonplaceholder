@@ -1,0 +1,25 @@
+.comments {
+  &-header {
+    display: flex;
+    gap: 20px;
+    &__image {
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    &__content {
+      h5 {
+        font-size: 30px;
+        margin: 0;
+      }
+
+      span {
+        font-size: 12px;
+        margin-left: 2px;
+      }
+      border-bottom: 2px solid lighten(gray, 20%);
+    }
+  }
+}

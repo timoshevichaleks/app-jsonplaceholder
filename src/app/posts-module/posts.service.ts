@@ -20,4 +20,8 @@ export class PostsService {
     return this.http.get<Post>(`${environment.api}/posts/${id}`);
   }
 
+  getComments(): Observable<any> {
+    return this.http.get(`${environment.api}/comments`);
+  }
+
 }
