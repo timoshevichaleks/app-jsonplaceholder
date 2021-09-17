@@ -1,0 +1,18 @@
+<div class="mt-5 mb-5">
+  <div *ngFor="let comment of comment$ | async">
+    <div class="comment d-flex gap-4 py-3">
+
+      <div class="comment__image">
+        <i class="bi bi-person-circle fs-1"></i>
+      </div>
+
+      <div class="comment-content  border-bottom border-3">
+        <h5 class="comment-content__name fs-2 mt-2 mb-0">{{comment.name}}</h5>
+        <span class="comment-content__email border-bottom border-2 border-info">
+          Email: <a href="" class="text-info text-decoration-none">{{comment.email}}</a></span>
+        <p class="comment-content__body text-muted py-3 mb-0">{{comment.body}}</p>
+      </div>
+
+    </div>
+  </div>
+</div>
