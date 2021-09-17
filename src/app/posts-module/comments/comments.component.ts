@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from "rxjs";
 import { PostsService } from "../posts.service";
-import { Comment } from "../comment";
+import { Comment } from "../models/comment";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-comments',
@@ -12,14 +13,16 @@ export class CommentsComponent implements OnInit {
 
   comment$: Observable<Comment[]>;
 
-  constructor(private postsService: PostsService) { }
+  constructor(private postsService: PostsService, private activatedRoute: ActivatedRoute) {
+  }
 
   ngOnInit(): void {
-   this.getComments();
+    const {id} = this.activatedRoute.snapshot.params;
+
+    this.fetchComments(id);
   }
 
-  getComments() {
-    this.comment$ = this.postsService.getComments();
+  private fetchComments(id: number) {
+    this.comment$ = this.postsService.fetchComments(id);
   }
-
 }
